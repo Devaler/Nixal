@@ -30,7 +30,7 @@ in
 
   users.users.kanna = {
     isNormalUser = true;
-    hashedPassword = "$y$j9T$f/v5T8WNQwojyXIBThrpF1$8FJ7c.u0zYU9YzIsr/f3UNnhqdsp5wFFvbKgkzL5X17";
+    hashedPassword = "$y$j9T$BjJ67sXD0cRqYAUqRQPSD0$JYizWH6.lQGySbEZwnUo4jBfGV2a636S9DN26DVtgF0";
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       stremio
