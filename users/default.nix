@@ -15,28 +15,30 @@ in
     [
     ];
 
+  users = {
+    mutableUsers = false; # always allow setting users' passwords from NixOS configuration files.
+    users = {
 
-    # Define a user account. Don't forget to set a password with ‘passwd’.    
+      val = {
+        isNormalUser = true;
+        hashedPasswordFile = "/home/nixos/users/pwd/val-pwd";
+        extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+        packages = with pkgs; [
+        ] ++ commonPackages;
+        shell = pkgs.fish;
+      };
 
-  users.users.val = {
-    isNormalUser = true;
-    hashedPassword = "$y$j9T$g5nrw8w.d0XJ5DpemL5XV0$/D/QpFPtw2hs1/3c92wqxG68hu6yNvxmwWOMRA78tp8";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-    ] ++ commonPackages;
-    shell = pkgs.fish;
-  };
-
-
-  users.users.kanna = {
-    isNormalUser = true;
-    hashedPassword = "$y$j9T$BjJ67sXD0cRqYAUqRQPSD0$JYizWH6.lQGySbEZwnUo4jBfGV2a636S9DN26DVtgF0";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      stremio
-      prismlauncher
-    ] ++ commonPackages;
-    shell = pkgs.fish;
+      kanna = {
+        isNormalUser = true;
+        hashedPasswordFile = "/home/nixos/users/pwd/kanna-pwd";
+        extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+        packages = with pkgs; [
+          stremio
+          prismlauncher
+        ] ++ commonPackages;
+        shell = pkgs.fish;
+      };
+    };
   };
 
 # enable programs
