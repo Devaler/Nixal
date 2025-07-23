@@ -3,12 +3,30 @@
 {
 # enable programs
   programs = {
-    neovim = { enable = true; defaultEditor = true;}; # Text editor
-    yazi.enable = true; # CLI file manager
+    neovim = { # Text editor
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+    };
+
+    yazi = { # CLI file manager
+      enable = true;
+      flavors = {
+        dark = pkgs.fetchFromGitHub {
+          owner = "bennyyip";
+          repo = "gruvbox-dark.yazi";
+          rev = "main";
+          sha256 = "sha256-RWqyAdETD/EkDVGcnBPiMcw1mSd78Aayky9yoxSsry4=";
+        };
+      };
+    settings.theme.flavor.dark = "dark";
+    };
+
     fish.enable = true; # Shell
     tmux.enable = true; # Workflow
     nh.enable = true; # "Nix Helper"
   };
+
   environment.variables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
