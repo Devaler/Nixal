@@ -5,7 +5,7 @@
   #utils
     wget # CLI downloader
     jq # A json parser, also used in one of my hyprland keybinds
-    fd ripgrep # The find trinity (when fzf was here)
+    fd ripgrep fzf # The find trinity
     tree # output file tree
     brightnessctl
   ];
@@ -14,7 +14,7 @@
   programs = {
     fish.enable = true; # Shell with auto-completion
     tmux.enable = true; # Terminal multiplexer
-    fzf.enable = true; # "Fuzzyfinder"
+    fzf = {}; # "Fuzzyfinder"
     nh.enable = true; # "Nix Helper"
 
     nvf = { # Text editor (NVIM wrapper)
@@ -39,7 +39,7 @@
           sha256 = "sha256-RWqyAdETD/EkDVGcnBPiMcw1mSd78Aayky9yoxSsry4=";
         };
       };
-    # test settings.theme.flavor.dark = "dark";
+    settings.theme.flavor.dark = "dark";
     };
 
     git = {
