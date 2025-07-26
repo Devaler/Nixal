@@ -10,9 +10,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./hosts
-      ./pkgs.nix
       ./network.nix
-      ./git.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

@@ -4,19 +4,30 @@
   inputs = {
     # NixOS official package source, using the nixos-unstable branch here
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    # Adding raf's nvf, customized nvim for nix
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Adding zen-browser's flake
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs"; # Improve Zen starting time
+    zen = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs"; # Improve Zen starting time
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nvf, ... }@inputs: {
     nixosConfigurations.v = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
+      	# Import folders
         ./system
         ./users
+        ./pkgs
+	# Import module for options
+	nvf.nixosModules.default
       ];
     };
   };
