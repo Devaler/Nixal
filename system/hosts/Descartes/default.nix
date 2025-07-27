@@ -1,10 +1,13 @@
-{ lib, config , options, ... }:
-
 {
+  lib,
+  config,
+  options,
+  ...
+}: {
   services.thinkfan = {
     enable = true;
     levels = [
-      [0 0  40]
+      [0 0 40]
       [1 40 45]
       [3 45 55]
       [5 55 65]

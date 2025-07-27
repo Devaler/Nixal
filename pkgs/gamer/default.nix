@@ -1,11 +1,14 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     prismlauncher
   ];
 
-# enable programs
+  # enable programs
   programs = {
     steam.enable = true;
   };

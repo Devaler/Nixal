@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   nixpkgs.config.allowUnfree = true; # allow unfree packages
 
   imports = [

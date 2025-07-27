@@ -1,6 +1,9 @@
-{ options, lib, config, ...}:
-
 {
+  options,
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./Descartes
   ];

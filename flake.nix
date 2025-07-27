@@ -18,16 +18,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, nvf, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    nvf,
+    ...
+  } @ inputs: {
     nixosConfigurations.v = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-      	# Import folders
+        # Import folders
         ./system
         ./users
         ./pkgs
-	# Import module for options
-	nvf.nixosModules.default
+        # Import module for options
+        nvf.nixosModules.default
       ];
     };
   };
