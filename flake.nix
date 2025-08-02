@@ -10,12 +10,6 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Adding zen-browser's flake
-    zen = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs"; # Improve Zen starting time
-    };
   };
 
   outputs = {

@@ -13,9 +13,9 @@
     #utils
     wget # CLI downloader
     jq # A json parser, also used in one of my hyprland keybinds
-    fd
-    ripgrep
-    fzf # The find trinity
+    fd # Better find
+    ripgrep # Find in files
+    fzf # "Fuzzyfinder"
     tree # output file tree
     brightnessctl
     alejandra # nix formatter
@@ -26,6 +26,7 @@
     fish.enable = true; # Shell with auto-completion
     tmux.enable = true; # Terminal multiplexer
     fzf = {}; # "Fuzzyfinder"
+    zoxide.enable = true; # Better cd
     nh.enable = true; # "Nix Helper"
 
     yazi = {
