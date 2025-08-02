@@ -17,10 +17,12 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.memtest86.enable = true;
 
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Faster derivations, might be incompatible with Flakes?
+  nix.settings.allow-import-from-derivation = false;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -28,27 +30,19 @@
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "fr";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
