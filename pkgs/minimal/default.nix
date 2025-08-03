@@ -7,6 +7,7 @@
   imports = [
     # for big configurations
     ./nvim.nix
+    ./ai.nix
   ];
 
   environment.systemPackages = with pkgs; [
