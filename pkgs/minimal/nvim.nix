@@ -9,7 +9,8 @@
       enable = true;
       defaultEditor = true;
       settings = {
-        vim = { # Inspired from https://github.com/NotAShelf/nvf/blob/main/configuration.nix
+        vim = {
+          # Inspired from https://github.com/NotAShelf/nvf/blob/main/configuration.nix
           viAlias = true; # 'vi' = 'nvim'
           vimAlias = true; # 'vim' = 'nvim'
 
@@ -58,11 +59,13 @@
 
           utility = {
             ccc.enable = true; # Should replace ui.colorizer.
-            images.image-nvim = { # Render images in nvim. Might be bloat? Not working?
+            images.image-nvim = {
+              # Render images in nvim. Might be bloat? Not working?
               enable = true;
               setupOpts.backend = "kitty";
             };
-            yazi-nvim = { # Use yazi instead of netrw
+            yazi-nvim = {
+              # Use yazi instead of netrw
               enable = true;
               setupOpts.open_for_directories = true;
             };
@@ -76,7 +79,6 @@
 
           treesitter.context.enable = true; # Show context of current nesting
           telescope.enable = true; # Find, git, LSP, etc.
-
 
           # Bloat?
           autocomplete.blink-cmp.enable = true; # Modern auto-completer
