@@ -5,7 +5,7 @@
     # NixOS official package source, using the nixos-unstable branch here
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    # Adding raf's nvf, customized nvim for nix
+    # Adding raf's nvf, nix wrapper for neovim
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";

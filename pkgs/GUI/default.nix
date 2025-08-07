@@ -1,9 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
+  imports = [
+        ./dwm.nix
+        ];
+
   environment.systemPackages = with pkgs; [
     stremio
     hyprshot
@@ -17,7 +16,6 @@
     hunspellDicts.fr-moderne # Spelling correction
   ];
 
-  # enable programs
   programs = {
     hyprland.enable = true;
     firefox.enable = true;
