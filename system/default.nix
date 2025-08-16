@@ -14,15 +14,14 @@
     ./network.nix
   ];
 
+  services.fstrim.enable = true; # Healthy SSDs. Put in host config?
+  services.dbus.implementation = "broker"; # Better DBus. Put somewhere else?
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Faster derivations, might be incompatible with Flakes?
-  nix.settings.allow-import-from-derivation = false;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -50,9 +49,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
-
-  # Enable passwordless sudo for wheel users
-  security.sudo.wheelNeedsPassword = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

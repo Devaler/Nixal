@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
-        ./dwm.nix
-        ];
+  ];
 
   environment.systemPackages = with pkgs; [
     stremio

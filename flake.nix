@@ -10,12 +10,17 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
-    self,
     nixpkgs,
     nvf,
+                home-manager,
     ...
   } @ inputs: {
     nixosConfigurations.v = nixpkgs.lib.nixosSystem {
@@ -27,6 +32,12 @@
         ./pkgs
         # Import module for options
         nvf.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jdoe = ./home.nix;
+        }
       ];
     };
   };

@@ -17,7 +17,6 @@
     fd # Better find
     ripgrep # Find in files
     fzf # "Fuzzyfinder"
-    tree # output file tree
     brightnessctl
     alejandra # nix formatter
   ];
