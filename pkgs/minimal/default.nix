@@ -17,6 +17,7 @@
     fd # Better find
     ripgrep # Find in files
     fzf # "Fuzzyfinder"
+    zellij # Terminal multiplexer, testing against tmux?
     brightnessctl
     alejandra # nix formatter
   ];
@@ -24,7 +25,7 @@
   # programs.<program> offers more configuration than environment.systemPackages. Not all programs have such modules, sadly.
   programs = {
     fish.enable = true; # Shell with auto-completion
-    tmux.enable = true; # Terminal multiplexer
+    # tmux.enable = true; # Terminal multiplexer
     fzf = {}; # "Fuzzyfinder"
     zoxide.enable = true; # Better cd
     nh.enable = true; # "Nix Helper"

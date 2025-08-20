@@ -12,7 +12,7 @@
 
   users = {
     users = {
-      kanna = {
+      devaler = {
         isNormalUser = true;
         extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
         shell = pkgs.fish;

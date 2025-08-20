@@ -14,6 +14,11 @@
           viAlias = true; # 'vi' = 'nvim'
           vimAlias = true; # 'vim' = 'nvim'
 
+          options = {
+            tabstop = 2;
+            shiftwidth = 2;
+          };
+
           languages = {
             enableFormat = true; # Might need to add vim.lsp.formatOnSave? raf enables both but seems uselessly redundant
             enableTreesitter = true; # Syntax highlighting, gotodefinitions, etc. Try to swap for vim.treesitter.enable?
@@ -55,7 +60,11 @@
             # indent-blankline.enable = true; # Better indications for indentation. Seems bloat with auto-format, "=", etc.
           };
 
-          clipboard.enable = true;
+          clipboard = {
+            enable = true;
+            registers = "unnamed,unnamedplus"; # Enable clipboard with registers
+            providers.wl-copy.enable = true; # Enable clipboard on Wayland
+          };
 
           utility = {
             ccc.enable = true; # Should replace ui.colorizer.

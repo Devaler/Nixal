@@ -7,9 +7,7 @@
     wireless.iwd = {
       enable = true;
       settings = {
-        Network.EnableIPv6 = true;
         General.AutoEnable = true;
-        Settings.AutoConnect = true;
       };
     };
     networkmanager = {
