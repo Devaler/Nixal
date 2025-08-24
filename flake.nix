@@ -1,32 +1,17 @@
 {
-  description = "My computer Flake";
+  description = "WR longest eval times possible";
 
-  inputs = {
-    # NixOS official package source, using the nixos-unstable branch here
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
-    # Adding raf's nvf, nix wrapper for neovim
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+  outputs = {nixpkgs, ...} @ inputs: {
+    nixosConfigurations = import ./hosts {inherit inputs;};
+    # test if inputs is necessary
   };
 
-  outputs = {
-    nixpkgs,
-    nvf,
-    ...
-  } @ inputs: {
-    nixosConfigurations.v = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        # Import folders
-        ./system
-        ./users
-        ./pkgs
-        # Import module for options
-        nvf.nixosModules.default
-      ];
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nvf = {
+        url = "github:NotAShelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
