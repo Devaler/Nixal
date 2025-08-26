@@ -7,3 +7,8 @@ TBD:
 - manage git/ssh
 - add hjem?
 - add .editorconfig
+
+
+# Credits
+- The (poz)[https://git.poz.pet/poz/niksos], my main inspiration for this repo.
+- (Raf)[https://github.com/notashelf/nyx], another big reference.
