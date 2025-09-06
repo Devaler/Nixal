@@ -4,7 +4,9 @@
   rolesPath = modulesPath + /roles;
   # Roles
   gaming = rolesPath + /gaming;
-  works = rolesPath + /work;
+  work = rolesPath + /work;
+
+  # Probably add an hardwarePath and hardware in mkHost
 
   commonConfig = ./commonConfig.nix;
   mkHost = {
@@ -13,7 +15,7 @@
   }:
     inputs.nixpkgs.lib.nixosSystem {
       system = architecture;
-      modules = roles ++ [commonConfig];
+      modules = roles ++ [commonConfig ./test.nix];
     };
 in {
   test = mkHost {
