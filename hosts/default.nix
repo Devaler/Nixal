@@ -1,4 +1,4 @@
-{inputs, ...}: let
+{inputs}: let
   modulesPath = ../modules;
 
   rolesPath = modulesPath + /roles;
@@ -8,7 +8,7 @@
 
   # Probably add an hardwarePath and hardware in mkHost
 
-  commonConfig = ./commonConfig.nix;
+  commonConfig = modulesPath + /core;
 #   mkHost = {
 #     architecture,
 #     roles,

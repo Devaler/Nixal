@@ -1,12 +1,13 @@
 {
   config,
   lib,
-  inputs,
+  pkgs,
   ...
 }:
 {
   # Probably put boot loader config in its own file cuz lot of stuff?
-  config = lib.mkDefault {
+  # mkOverride 999 is ONLY for users.defaultUserShell. 
+  config = lib.mkOverride 999 {
     boot.loader = {
       efi.canTouchEfiVariables = true; # Not sure if useful?
       grub = {
@@ -36,6 +37,8 @@
     networking.useDHCP = true; # Idk if i should use this but idc
 
     # Miscellaneous
-    nixpkgs.config.allowUnfree = true; # allow unfree packages
+    programs.zsh.enable = true;
+    users.defaultUserShell = pkgs.zsh; # use mkdefault if removed?
+    nixpkgs.config.allowUnfree = true;
   };
 }
