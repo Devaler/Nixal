@@ -9,34 +9,36 @@
   # Probably add an hardwarePath and hardware in mkHost
 
   commonConfig = modulesPath + /core;
-#   mkHost = {
-#     architecture,
-#     roles,
-#   }:
-#     inputs.nixpkgs.lib.nixosSystem {
-#       system = architecture;
-#       modules = roles ++ [commonConfig inputs.nvf.nixosModules.default];
-#     };
-# in {
-#   xixi = mkHost {
-#     architecture = "x86_64-linux";
-#     roles = [];
-#   };
-# }
 
-
-  mkHost = { host, architecture, roles }: {
+  mkHost = {
+    host,
+    architecture,
+    hardware,
+    roles,
+  }: {
     ${host} = inputs.nixpkgs.lib.nixosSystem {
       system = architecture;
-      modules = roles ++ [commonConfig ./${host} inputs.nvf.nixosModules.default];
+      modules =
+        roles
+        ++ [
+          commonConfig
+          ./${host}
+          inputs.nixos-hardware.nixosModules.${hardware}
+          inputs.nvf.nixosModules.default
+        ];
     };
   };
 
   hosts = [
     {
-    host = "xixi";
-    architecture = "x86_64-linux";
-    roles = [];
-  }
+      host = "xixi";
+      architecture = "x86_64-linux";
+      hardware = "lenovo-thinkpad-x1-7th-gen";
+      roles = [];
+    }
   ];
-in builtins.foldl' (a: b: a // b) {} (map mkHost hosts)
+in
+  builtins.foldl' (a: b: a // b) {} (map mkHost hosts)
+# This creates a list of AttrSets with `map`, which we then transform in 1 AttrSet
+# with `foldl'`
+

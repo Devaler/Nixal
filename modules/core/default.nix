@@ -5,9 +5,12 @@
   ...
 }:
 {
-  # Probably put boot loader config in its own file cuz lot of stuff?
+  imports = [
+    ./cli.nix
+  ];
   # mkOverride 999 is ONLY for users.defaultUserShell. 
   config = lib.mkOverride 999 {
+    # Probably put boot loader config in its own file cuz lot of stuff?
     boot.loader = {
       efi.canTouchEfiVariables = true; # Not sure if useful?
       grub = {
@@ -36,9 +39,20 @@
     # Network
     networking.useDHCP = true; # Idk if i should use this but idc
 
+    # Audio
+    services.pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+    
+    # Locales
+    time.timeZone = "Europe/Paris";
+    console.keyMap = "fr";
+
     # Miscellaneous
-    programs.zsh.enable = true;
-    users.defaultUserShell = pkgs.zsh; # use mkdefault if removed?
+    services.printing.enable = true;
+    services.dbus.implementation = "broker"; # Better DBus.
     nixpkgs.config.allowUnfree = true;
+    nix.settings.experimental-features = ["nix-command" "flakes"];
   };
 }
