@@ -42,4 +42,3 @@ in
   builtins.foldl' (a: b: a // b) {} (map mkHost hosts)
 # This creates a list of AttrSets with `map`, which we then transform in 1 AttrSet
 # with `foldl'`
-
