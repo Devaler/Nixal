@@ -3,13 +3,11 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
-    ./cli.nix
+    ./cli
   ];
-  # mkOverride 999 is ONLY for users.defaultUserShell. 
-  config = lib.mkOverride 999 {
+  config = lib.mkDefault {
     # Probably put boot loader config in its own file cuz lot of stuff?
     boot.loader = {
       efi.canTouchEfiVariables = true; # Not sure if useful?
@@ -44,7 +42,7 @@
       enable = true;
       pulse.enable = true;
     };
-    
+
     # Locales
     time.timeZone = "Europe/Paris";
     console.keyMap = "fr";
