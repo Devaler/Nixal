@@ -1,10 +1,10 @@
 {
-  config,
   pkgs,
   ...
 }: {
   # Probably move (modularize?) this networking section?
   networking = {
+    hostName = "xixi";
     wireless.iwd = {
       enable = true;
       settings.General.AutoEnable = true;

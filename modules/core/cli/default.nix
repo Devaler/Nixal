@@ -19,8 +19,8 @@ lib,
     # alejandra
     # wget
     # curl
-    # brightnessctl
-    # jq
+    brightnessctl
+    jq
     ;
   };
 

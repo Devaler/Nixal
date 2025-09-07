@@ -7,6 +7,7 @@
   imports = [
     ./cli
     ./gui
+    ./non-default.nix
   ];
   config = lib.mkDefault {
     # Probably put boot loader config in its own file cuz lot of stuff?
