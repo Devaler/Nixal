@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  ...
 }: {
   environment.SystemPackages = lib.attrsValues {
     inherit

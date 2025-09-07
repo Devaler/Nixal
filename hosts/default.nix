@@ -3,8 +3,9 @@
 
   rolesPath = modulesPath + /roles;
   # Roles
-  gaming = rolesPath + /gaming;
   work = rolesPath + /work;
+  medias = rolesPath + /medias;
+  gaming = rolesPath + /gaming;
 
   # Probably add an hardwarePath and hardware in mkHost
 
@@ -34,7 +35,7 @@
       host = "xixi";
       architecture = "x86_64-linux";
       hardware = "lenovo-thinkpad-x1-7th-gen";
-      roles = [];
+      roles = [medias gaming work];
     }
   ];
 in

@@ -9,20 +9,23 @@ lib,
     ./git.nix
     ./editor.nix
   ];
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
-  environment.SystemPackages = lib.attrsValues {
+  environment.systemPackages = lib.attrValues {
     inherit
     (pkgs)
-    fd
-    ripgrep
-    fzf
+    fd # Better find
+    ripgrep # Better grep in multiple files
+    fzf # 'Fuzzyfinder'
     # alejandra
     # wget
     # curl
     # brightnessctl
     # jq
     ;
+  };
+
+  programs = {
+    zoxide.enable = true; # Better `cd`
+    yazi.enable = true; # File manager
   };
 }

@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./cli
+    ./gui
   ];
   config = lib.mkDefault {
     # Probably put boot loader config in its own file cuz lot of stuff?
