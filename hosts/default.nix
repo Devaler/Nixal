@@ -23,10 +23,9 @@
         roles
         ++ [
           commonConfig
-          ../secrets
           ./${host}
-          inputs.agenix.nixosModules.default
           inputs.nixos-hardware.nixosModules.${hardware}
+          inputs.agenix.nixosModules.default
           inputs.nvf.nixosModules.default
         ];
     };
