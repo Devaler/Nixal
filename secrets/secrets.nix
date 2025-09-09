@@ -4,3 +4,6 @@ let
 in {
     "test.age".publicKeys = [ devaler ];
 }
+
+# Create file: nix run github:ryantm/agenix -- -e <foobar>.age
+# Update files: nix run github:ryantm/agenix -- -r
