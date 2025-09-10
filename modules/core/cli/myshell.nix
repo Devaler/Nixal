@@ -9,7 +9,7 @@ pkgs,
         # enableCompletion = true;
         ohMyZsh = {
             enable = true;
-            theme = "random";
+            theme = "af-magic";
         };
     };
   users.defaultUserShell = pkgs.zsh;
