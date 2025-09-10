@@ -4,7 +4,11 @@ pkgs,
 }: {
   programs.zsh = {
         enable = true;
-        ohMyZsh.enable = true;
+        autosuggestions.enable = true;
+        syntaxHighlighting.enable = true;
+        ohMyZsh = {
+            enable = true;
+        };
     };
   users.defaultUserShell = pkgs.zsh;
 
@@ -15,6 +19,7 @@ pkgs,
         untar = "tar -xvf";
         untargz = "tar -xzf";
         open = "xdg-open";
+        kys = "shutdown now";
         ":q" = "exit"; # ':q' could seem like a stolen idea but i thought of it on my own...
     };
 }

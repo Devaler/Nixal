@@ -1,6 +1,7 @@
 A (yet) simple NixOS configuration, aiming to be as much portable, reproducible and modular as possible.
 
-TBD:
+
+# TBD:
 - manage git/ssh
 - add hjem?
 

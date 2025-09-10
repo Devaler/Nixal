@@ -6,7 +6,7 @@
     inherit (pkgs)
     hyprshot
     hyprpaper # Hypr* suite
-    rofi-wayland # Application launcher
+    rofi # Application launcher
     pcmanfm # Files manager
     kitty # My favorite terminal!
     ;
