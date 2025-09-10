@@ -9,7 +9,7 @@ pkgs,
         # enableCompletion = true;
         ohMyZsh = {
             enable = true;
-            theme = "af-magic bira crunch darkblood fino-time fino fox gnzh";
+            theme = "af-magic bira crunch darkblood fino-time fino fox gnzh jonathan rkj rkj-repos simonoff strug";
         };
     };
   users.defaultUserShell = pkgs.zsh;
